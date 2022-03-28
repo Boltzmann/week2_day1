@@ -32,4 +32,16 @@ public class StudentDB {
         newStudentArray[this.studentArray.length] = toDB;
         return newStudentArray;
     }
+
+    public Student[] remove(Student peter) {
+        Student[] newStudentArray = new Student[this.studentArray.length - 1];
+        int counter = 0;
+        for (Student student : this.studentArray) {
+            if (!student.equals(peter)) {
+                newStudentArray[counter] = student;
+                counter++;
+            }
+        }
+        return newStudentArray;
+    }
 }

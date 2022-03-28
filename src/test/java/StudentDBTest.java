@@ -33,4 +33,15 @@ public class StudentDBTest {
         Assertions.assertArrayEquals(expect, studentDB.add(soenke));
     }
 
+    @Test
+    void removeFirstStudent() {
+        Student[] expect = {paul};
+        Assertions.assertArrayEquals(expect, studentDB.remove(peter));
+    }
+
+    @Test
+    void removeLastStudent() {
+        Student[] expect = {peter};
+        Assertions.assertArrayEquals(expect, studentDB.remove(paul));
+    }
 }

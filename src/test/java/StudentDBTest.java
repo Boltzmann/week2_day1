@@ -21,10 +21,16 @@ public class StudentDBTest {
 
     @Test
     void toStringTest() {
-        System.out.println(studentDB.toString());
         Assertions.assertTrue(studentDB.toString().contains("Asterix der Gallier"));
         Assertions.assertTrue(studentDB.toString().contains("Vorname Nachname"));
         Assertions.assertTrue(studentDB.toString().contains("70"));
+    }
+
+    @Test
+    void addTest(){
+        Student soenke = new Student(23, 42, "Sönke");
+        Student[] expect = {peter, paul, soenke};
+        Assertions.assertArrayEquals(expect, studentDB.add(soenke));
     }
 
 }

@@ -19,4 +19,12 @@ public class StudentDB {
     public Student[] getAllStudents() {
         return this.studentArray;
     }
+
+    public Student[] add(Student toDB) {
+        Student[] newStudentArray = new Student[this.studentArray.length + 1];
+        for (int st = 0; st < this.studentArray.length; st++)
+            newStudentArray[st] = studentArray[st];
+        newStudentArray[this.studentArray.length] = toDB;
+        return newStudentArray;
+    }
 }

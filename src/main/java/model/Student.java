@@ -23,6 +23,29 @@ public class Student {
     public String toString() {
         return Integer.toString(this.age);
     }
+
+    @Override
+    public boolean equals(Object submittedObject) {
+        if (this == submittedObject) {
+            return true;
+        }
+        if (submittedObject == null || getClass() != submittedObject.getClass()) {
+            return false;
+        }
+
+        Student student = (Student) submittedObject;
+
+        return age == student.age;
+    }
+
+    @Override
+    public int hashCode() {
+        return age;
+    }
+
+
+
+
     public Student (){
 
     }

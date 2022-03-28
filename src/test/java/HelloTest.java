@@ -1,3 +1,4 @@
+import model.Student;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -21,9 +22,13 @@ public class HelloTest {
         Student martin = new Student();
         martin.setAge(38);
         Assertions.assertEquals(38,martin.getAge());
-
     }
-
+    @Test
+    public void studentToString(){
+        Student martin = new Student();
+        martin.setAge(38);
+        Assertions.assertEquals("38", martin.studentToString());
+    }
 
 
 }

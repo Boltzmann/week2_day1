@@ -1,3 +1,5 @@
+package model;
+
 public class Student {
     private int age = 19;
 
@@ -16,5 +18,13 @@ public class Student {
     public void setAge(int age) {
         this.age = age;
     }
+
+
+    public String studentToString() {
+        return Integer.toString(this.age);
     }
+    public Student (){
+
+    }
+}
 

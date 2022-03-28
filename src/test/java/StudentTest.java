@@ -2,12 +2,7 @@ import model.Student;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class HelloTest {
-    @Test
-    public void helloSimpleTest() {
-        Assertions.assertEquals("hello", Student.helloTest());
-    }
-
+public class StudentTest {
     @Test
     public void ageTest() {
         Student martin = new Student();

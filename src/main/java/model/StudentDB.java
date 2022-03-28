@@ -20,6 +20,11 @@ public class StudentDB {
         return this.studentArray;
     }
 
+    public Student randomStudent() {
+        int maxIndex = this.studentArray.length - 1;
+        return this.studentArray[(int)(Math.random()*maxIndex)];
+    }
+
     public Student[] add(Student toDB) {
         Student[] newStudentArray = new Student[this.studentArray.length + 1];
         for (int st = 0; st < this.studentArray.length; st++)

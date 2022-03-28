@@ -32,6 +32,8 @@ public class StudentTest {
         Assertions.assertEquals(klaus, peter);
     }
 
+
+
     @Test
     void constructorWithThreeArgs(){
         Student peter = new Student(48, 2203281, "Peter Muster");

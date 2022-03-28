@@ -21,7 +21,7 @@ public class StudentDB {
     }
 
     public Student randomStudent() {
-        int maxIndex = this.studentArray.length - 1;
+        int maxIndex = this.studentArray.length;
         return this.studentArray[(int)(Math.random()*maxIndex)];
     }
 

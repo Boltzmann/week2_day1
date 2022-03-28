@@ -20,7 +20,7 @@ public class Student {
     }
 
 
-    public String studentToString() {
+    public String toString() {
         return Integer.toString(this.age);
     }
     public Student (){

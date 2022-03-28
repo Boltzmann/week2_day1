@@ -27,7 +27,7 @@ public class HelloTest {
     public void studentToString(){
         Student martin = new Student();
         martin.setAge(38);
-        Assertions.assertEquals("38", martin.studentToString());
+        Assertions.assertEquals("38", martin.toString());
     }
 
 

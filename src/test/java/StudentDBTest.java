@@ -1,12 +1,18 @@
 import model.Student;
 import model.StudentDB;
+
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class StudentDBTest {
     Student peter = new Student(28, 1, "Vorname Nachname");
     Student paul = new Student(70, 2, "Asterix der Gallier");
-    Student[] studentArray = {peter, paul};
+    ArrayList<Student> studentArray = new ArrayList<Student>(Arrays.asList(peter,paul));
     StudentDB studentDB = new StudentDB(studentArray);
 
     @Test
@@ -16,7 +22,7 @@ public class StudentDBTest {
 
     @Test
     void getAllStudents() {
-        Assertions.assertArrayEquals(studentArray, studentDB.getAllStudents());
+        Assertions.assertEquals(studentArray, studentDB.getAllStudents());
     }
 
     @Test
@@ -29,8 +35,11 @@ public class StudentDBTest {
     @Test
     void addTest(){
         Student soenke = new Student(23, 42, "Sönke");
-        Student[] expect = {peter, paul, soenke};
-        Assertions.assertArrayEquals(expect, studentDB.add(soenke));
+        ArrayList<Student> expect = new ArrayList<Student>();
+        expect.add(peter);
+        expect.add(paul);
+        expect.add(soenke);
+        Assertions.assertEquals(expect, studentDB.add(soenke));
     }
 
     @Test

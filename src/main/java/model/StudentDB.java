@@ -1,40 +1,38 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class StudentDB {
-    Student[] studentArray;
+    ArrayList<Student> studentArray;
 
-    public StudentDB(Student[] studentArray) {
+    public StudentDB(ArrayList<Student> studentArray) {
         this.studentArray = studentArray;
     }
 
     @Override
     public String toString() {
         return "StudentDB{" +
-                "studentArray=" + Arrays.toString(studentArray) +
+                "studentArray=" + studentArray.toString() +
                 '}';
     }
 
-    public Student[] getAllStudents() {
+    public ArrayList<Student> getAllStudents() {
         return this.studentArray;
     }
 
     public Student randomStudent() {
-        int maxIndex = this.studentArray.length;
-        return this.studentArray[(int)(Math.random()*maxIndex)];
+        int maxIndex = this.studentArray.size();
+        return this.studentArray.get((int)(Math.random()*maxIndex));
     }
 
-    public Student[] add(Student toDB) {
-        Student[] newStudentArray = new Student[this.studentArray.length + 1];
-        for (int st = 0; st < this.studentArray.length; st++)
-            newStudentArray[st] = studentArray[st];
-        newStudentArray[this.studentArray.length] = toDB;
-        return newStudentArray;
+    public ArrayList<Student> add(Student toDB) {
+        this.studentArray.add(toDB);
+        return this.studentArray;
     }
 
     public Student[] remove(Student peter) {
-        Student[] newStudentArray = new Student[this.studentArray.length - 1];
+        Student[] newStudentArray = new Student[this.studentArray.size() - 1];
         int counter = 0;
         for (Student student : this.studentArray) {
             if (!student.equals(peter)) {

@@ -52,11 +52,12 @@ public class StudentDBTest {
         expect.put(paul.getId(), paul);
         Assertions.assertEquals(expect, studentDB.remove(peter));
     }
-/*
+
     @Test
     void removeLastStudent() {
-        ArrayList<Student> expect = new ArrayList<>(Arrays.asList(peter));
+        HashMap<Integer, Student> expect = new HashMap<>();
+        expect.put(peter.getId(), peter);
         Assertions.assertEquals(expect, studentDB.remove(paul));
     }
-*/
+
 }

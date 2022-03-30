@@ -2,7 +2,6 @@ import model.Student;
 import model.StudentDB;
 
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -10,10 +9,18 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class StudentDBTest {
-    Student peter = new Student(28, 1, "Vorname Nachname");
-    Student paul = new Student(70, 2, "Asterix der Gallier");
-    ArrayList<Student> studentArray = new ArrayList<>(Arrays.asList(peter,paul));
-    StudentDB studentDB = new StudentDB(studentArray);
+    Student peter;
+    Student paul;
+    ArrayList<Student> studentArray;
+    StudentDB studentDB;
+
+    @BeforeEach
+    void setStudentsAndStudentDBAndStudentArray() {
+        peter = new Student(28, 1, "Vorname Nachname");
+        paul = new Student(70, 2, "Asterix der Gallier");
+        studentArray = new ArrayList<>(Arrays.asList(peter,paul));
+        studentDB = new StudentDB(studentArray);
+    }
 
     @Test
     void constructStudentArray() {

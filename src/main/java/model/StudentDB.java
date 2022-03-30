@@ -32,8 +32,8 @@ public class StudentDB {
     }
 
 
-    public ArrayList<Student> remove(Student peter) {
-        this.studentArray.remove(peter);
+    public ArrayList<Student> remove(Student student) {
+        this.studentArray.remove(student);
         return studentArray;
     }
 

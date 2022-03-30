@@ -1,19 +1,9 @@
 package model;
 
 public class Student {
-    private int age = 19;
+    private int age;
     private int id;
     private String name;
-
-    public static void main(String[] args) {
-        Student one = new Student(42, 223344, "One Two");
-        System.out.println(one);
-    }
-
-
-    public static String helloTest() {
-        return "hello";
-    }
 
     public int getAge() {
     return this.age;

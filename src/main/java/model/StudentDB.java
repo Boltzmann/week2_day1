@@ -1,38 +1,40 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.HashMap;
 
 public class StudentDB {
-    ArrayList<Student> studentArray;
+    HashMap<Integer, Student> studentHashMap = new HashMap<>();
 
     public StudentDB(ArrayList<Student> studentArray) {
-        this.studentArray = studentArray;
+        for(Student student : studentArray) {
+            this.studentHashMap.put(student.getId(), student);
+        }
     }
 
     @Override
     public String toString() {
         return "StudentDB{" +
-                "studentArray=" + studentArray.toString() +
+                "studentArray=" + studentHashMap.toString() +
                 '}';
     }
 
-    public ArrayList<Student> getAllStudents() {
-        return this.studentArray;
+    public HashMap<Integer, Student> getAllStudents() {
+        return this.studentHashMap;
     }
 
     public Student randomStudent() {
-        int maxIndex = this.studentArray.size();
-        return this.studentArray.get((int)(Math.random()*maxIndex));
+        int maxIndex = this.studentHashMap.size();
+        return this.studentHashMap.get((int)(Math.random()*maxIndex));
     }
 
-    public ArrayList<Student> add(Student toDB) {
-        this.studentArray.add(toDB);
-        return this.studentArray;
+    public HashMap<Integer, Student> add(Student toDB) {
+        this.studentHashMap.put(toDB.getId(), toDB);
+        return this.studentHashMap;
     }
 
-    public ArrayList<Student> remove(Student peter) {
-        this.studentArray.remove(peter);
-        return studentArray;
+    public HashMap<Integer, Student> remove(Student toRemove) {
+        this.studentHashMap.remove(toRemove.getId(), toRemove);
+        return this.studentHashMap;
     }
 }

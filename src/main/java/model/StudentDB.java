@@ -31,15 +31,8 @@ public class StudentDB {
         return this.studentArray;
     }
 
-    public Student[] remove(Student peter) {
-        Student[] newStudentArray = new Student[this.studentArray.size() - 1];
-        int counter = 0;
-        for (Student student : this.studentArray) {
-            if (!student.equals(peter)) {
-                newStudentArray[counter] = student;
-                counter++;
-            }
-        }
-        return newStudentArray;
+    public ArrayList<Student> remove(Student peter) {
+        this.studentArray.remove(peter);
+        return studentArray;
     }
 }

@@ -12,7 +12,7 @@ import java.util.Arrays;
 public class StudentDBTest {
     Student peter = new Student(28, 1, "Vorname Nachname");
     Student paul = new Student(70, 2, "Asterix der Gallier");
-    ArrayList<Student> studentArray = new ArrayList<Student>(Arrays.asList(peter,paul));
+    ArrayList<Student> studentArray = new ArrayList<>(Arrays.asList(peter,paul));
     StudentDB studentDB = new StudentDB(studentArray);
 
     @Test
@@ -35,7 +35,7 @@ public class StudentDBTest {
     @Test
     void addTest(){
         Student soenke = new Student(23, 42, "Sönke");
-        ArrayList<Student> expect = new ArrayList<Student>();
+        ArrayList<Student> expect = new ArrayList<>();
         expect.add(peter);
         expect.add(paul);
         expect.add(soenke);
@@ -44,13 +44,13 @@ public class StudentDBTest {
 
     @Test
     void removeFirstStudent() {
-        Student[] expect = {paul};
-        Assertions.assertArrayEquals(expect, studentDB.remove(peter));
+        ArrayList<Student> expect = new ArrayList<>(Arrays.asList(paul));
+        Assertions.assertEquals(expect, studentDB.remove(peter));
     }
 
     @Test
     void removeLastStudent() {
-        Student[] expect = {peter};
-        Assertions.assertArrayEquals(expect, studentDB.remove(paul));
+        ArrayList<Student> expect = new ArrayList<>(Arrays.asList(peter));
+        Assertions.assertEquals(expect, studentDB.remove(paul));
     }
 }

@@ -31,8 +31,18 @@ public class StudentDB {
         return this.studentArray;
     }
 
+
     public ArrayList<Student> remove(Student peter) {
         this.studentArray.remove(peter);
         return studentArray;
+    }
+
+    public ArrayList<Student> removeWithID(int id) {
+        for (Student student : this.studentArray) {
+            if(student.getId() == id) {
+                return this.remove(student);
+            }
+        }
+        return this.studentArray;
     }
 }

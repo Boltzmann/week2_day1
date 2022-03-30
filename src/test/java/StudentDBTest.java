@@ -53,4 +53,11 @@ public class StudentDBTest {
         ArrayList<Student> expect = new ArrayList<>(Arrays.asList(peter));
         Assertions.assertEquals(expect, studentDB.remove(paul));
     }
+
+    @Test
+    void removeWithID(){
+        ArrayList<Student> expect = new ArrayList<>(Arrays.asList(paul));
+
+        Assertions.assertEquals(expect, studentDB.removeWithID(1));
+    }
 }

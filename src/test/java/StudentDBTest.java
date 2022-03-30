@@ -38,12 +38,16 @@ public class StudentDBTest {
 
     @Test
     void addTest(){
+        // given
         Student soenke = new Student(23, 42, "Sönke");
         HashMap<Integer, Student> expect = new HashMap<>();
         expect.put(peter.getId(), peter);
         expect.put(paul.getId(), paul);
         expect.put(soenke.getId(), soenke);
-        Assertions.assertEquals(expect, studentDB.add(soenke));
+        // when
+        HashMap<Integer, Student> when = studentDB.add(soenke);
+        // then
+        Assertions.assertEquals(expect, when);
     }
 
     @Test

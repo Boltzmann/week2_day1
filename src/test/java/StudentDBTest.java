@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Map;
 
 public class StudentDBTest {
     Student peter = new Student(28, 1, "Vorname Nachname");
@@ -59,8 +60,9 @@ public class StudentDBTest {
 
     @Test
     void removeLastStudent() {
-        HashMap<Integer, Student> expect = new HashMap<>();
-        expect.put(peter.getId(), peter);
+        Map<Integer, Student> expect = Map.of(
+                peter.getId(), peter
+        );
         Assertions.assertEquals(expect, studentDB.remove(paul));
     }
 

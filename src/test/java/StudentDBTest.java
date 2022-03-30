@@ -24,10 +24,11 @@ public class StudentDBTest {
 
     @Test
     void getAllStudents() {
-        HashMap<Integer, Student> expectedHashMap = new HashMap<>();
-        expectedHashMap.put(1, new Student(28, 1, "Vorname Nachname"));
-        expectedHashMap.put(2, new Student(70, 2, "Asterix der Gallier"));
-        Assertions.assertEquals(expectedHashMap, studentDB.getAllStudents());
+        Map<Integer, Student> expectedMap = Map.of(
+                1, new Student(28, 1, "Vorname Nachname"),
+                2, new Student(70, 2, "Asterix der Gallier")
+        );
+        Assertions.assertEquals(expectedMap, studentDB.getAllStudents());
     }
 
     @Test
@@ -41,10 +42,11 @@ public class StudentDBTest {
     void addTest(){
         // given
         Student soenke = new Student(23, 42, "Sönke");
-        HashMap<Integer, Student> expect = new HashMap<>();
-        expect.put(peter.getId(), peter);
-        expect.put(paul.getId(), paul);
-        expect.put(soenke.getId(), soenke);
+        Map<Integer, Student> expect = Map.of(
+                peter.getId(), peter,
+                paul.getId(), paul,
+                soenke.getId(), soenke
+        );
         // when
         HashMap<Integer, Student> when = studentDB.add(soenke);
         // then
@@ -64,6 +66,15 @@ public class StudentDBTest {
                 peter.getId(), peter
         );
         Assertions.assertEquals(expect, studentDB.remove(paul));
+    }
+
+    @Test
+    void randomStudentNotNullTest() {
+        System.out.println(studentDB.randomStudent());
+        System.out.println(studentDB.getAllStudents().get(0));
+        System.out.println(studentDB.getAllStudents().size());
+        System.out.println(studentDB.getAllStudents());
+        //Assertions.assertNotNull(studentDB.randomStudent());
     }
 
 }

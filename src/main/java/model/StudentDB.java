@@ -25,7 +25,16 @@ public class StudentDB {
 
     public Student randomStudent() {
         int maxIndex = this.studentHashMap.size();
-        return this.studentHashMap.get((int)(Math.random()*maxIndex));
+        int randomIndex = (int)(Math.random()*maxIndex);
+        System.out.println("Index: " + randomIndex);
+        int counter = 0;
+        for (Integer student:this.studentHashMap.keySet()) {
+            if(counter == randomIndex) {
+                return this.studentHashMap.get(randomIndex);
+            }
+            counter++;
+        }
+        return null;
     }
 
     public HashMap<Integer, Student> add(Student toDB) {

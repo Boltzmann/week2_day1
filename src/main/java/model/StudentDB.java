@@ -30,7 +30,7 @@ public class StudentDB {
         int counter = 0;
         for (Integer student:this.studentHashMap.keySet()) {
             if(counter == randomIndex) {
-                return this.studentHashMap.get(randomIndex);
+                return this.studentHashMap.get(student);
             }
             counter++;
         }
@@ -47,7 +47,10 @@ public class StudentDB {
         return this.studentHashMap;
     }
 
-    public Student findById(int i) {
-        return this.studentHashMap.get(i);
-    }
+    public Student findById(int id) throws NoKeyPresentException{
+        if (this.studentHashMap.get(id) == null) {
+            throw new NoKeyPresentException("This exception would usually not be thrown. Do this now, however.");
+        }
+        return this.studentHashMap.get(id);
+        }
 }

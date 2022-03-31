@@ -1,15 +1,14 @@
+import model.NoKeyPresentException;
 import model.Student;
 import model.StudentDB;
 
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
 public class StudentDBTest {
     Student peter = new Student(28, 1, "Vorname Nachname");
@@ -70,12 +69,31 @@ public class StudentDBTest {
 
     @Test
     void randomStudentNotNullTest() {
-        //ToDo
-        //Assertions.assertNotNull(studentDB.randomStudent());
+        Assertions.assertNotNull(studentDB.randomStudent());
     }
 
     @Test
     void findByIdTest() {
-        Assertions.assertEquals(peter, studentDB.findById(1));
+        try {
+            Assertions.assertEquals(peter, studentDB.findById(1));
+        } catch (Exception e){
+            Assertions.fail();
+        }
+    }
+
+    @Test
+    void exceptionIsThrownWhenFindByIdGetsIdNotKnownToStudentDB() {
+        Assertions.assertThrows(NoKeyPresentException.class, () -> studentDB.findById(4711));
+    }
+
+    @Test
+    void exceptionMessageTest() {
+        try{
+            studentDB.findById(4711);
+            Assertions.fail();
+        } catch (NoKeyPresentException e) {
+            String expected = "This exception would usually not be thrown. Do this now, however.";
+            Assertions.assertEquals(expected, e.getMessage());
+        }
     }
 }

@@ -46,4 +46,8 @@ public class StudentDB {
         this.studentHashMap.remove(toRemove.getId(), toRemove);
         return this.studentHashMap;
     }
+
+    public Student findById(int i) {
+        return this.studentHashMap.get(i);
+    }
 }

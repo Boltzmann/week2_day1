@@ -70,11 +70,12 @@ public class StudentDBTest {
 
     @Test
     void randomStudentNotNullTest() {
-        System.out.println(studentDB.randomStudent());
-        System.out.println(studentDB.getAllStudents().get(0));
-        System.out.println(studentDB.getAllStudents().size());
-        System.out.println(studentDB.getAllStudents());
+        //ToDo
         //Assertions.assertNotNull(studentDB.randomStudent());
     }
 
+    @Test
+    void findByIdTest() {
+        Assertions.assertEquals(peter, studentDB.findById(1));
+    }
 }
